@@ -1,0 +1,35 @@
+name: Deploy FinFlow to EC2
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            cd ~/FinFlow || exit 1
+            git pull origin main
+
+            echo "=== Backend ==="
+            cd backend
+            npm install
+            pm2 restart finflow-backend || pm2 start index.js --name finflow-backend
+
+            echo "=== Frontend ==="
+            cd ../frontend
+            npm install
+            npm run build
+
+            sudo systemctl reload nginx
