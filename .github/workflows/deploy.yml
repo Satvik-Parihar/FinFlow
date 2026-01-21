@@ -19,8 +19,12 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            cd ~/FinFlow || exit 1
-            git pull origin main
+            set -e
+
+            echo "=== Pull latest code ==="
+            cd ~/FinFlow
+            git fetch origin
+            git reset --hard origin/main
 
             echo "=== Backend ==="
             cd backend
@@ -30,6 +34,10 @@ jobs:
             echo "=== Frontend ==="
             cd ../frontend
             npm install
+            rm -rf dist
             npm run build
 
-            sudo systemctl reload nginx
+            echo "=== Reload Nginx ==="
+            sudo systemctl restart nginx
+
+            echo "=== Deploy finished successfully ==="
