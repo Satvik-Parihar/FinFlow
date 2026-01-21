@@ -91,7 +91,7 @@ export default function WelcomePage() {
             <section className="py-20">
                 <div className="container mx-auto px-6">
                     <AnimatedSection className="text-center">
-                        <h2 className="text-3xl font-bold mb-2">Why Choose FinFlow? <br> Let me tell you why</h2>
+                        <h2 className="text-3xl font-bold mb-2">Why Choose FinFlow? <br /> Let me tell you why</h2>
                         <p className="text-gray-600 mb-12 max-w-2xl mx-auto">Everything you need to manage company spending in one simple, powerful platform.</p>
                     </AnimatedSection>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
