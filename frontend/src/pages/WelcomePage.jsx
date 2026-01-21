@@ -76,7 +76,7 @@ export default function WelcomePage() {
                             Expense Management, <span className="text-blue-600">Simplified.</span>
                         </h1>
                         <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                            Stop chasing receipts and wrestling with spreadsheets. FinFlow automates your entire expense workflow, from submission to reimbursement.
+                            
                         </p>
                         <div className="mt-8 flex justify-center space-x-4">
                             <Link to="/signup" className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300 transform hover:scale-105">
