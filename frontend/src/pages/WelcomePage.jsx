@@ -80,7 +80,7 @@ export default function WelcomePage() {
                         </p>
                         <div className="mt-8 flex justify-center space-x-4">
                             <Link to="/signup" className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300 transform hover:scale-105">
-                                Get Started for Free
+                                Let's Get Started for Free
                             </Link>
                         </div>
                     </AnimatedSection>
